@@ -35,10 +35,9 @@ class Queue:
         else:
             print('Sorry, no more room!')
 
-
     # Added dequeue method below:
     def dequeue(self):
-        if self.is_empty() == False:
+        if not self.is_empty():
             item_to_remove = self.head
             print('Removing ' + str(item_to_remove.get_value()) + ' from the queue!')
             if self.get_size() == 1:
@@ -61,7 +60,7 @@ class Queue:
         return self.size
 
     def has_space(self):
-        if self.max_size == None:
+        if self.max_size is None:
             return True
         else:
             return self.max_size > self.get_size()
