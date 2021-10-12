@@ -20,6 +20,9 @@ class Stack:
         self.limit = 1000
         self.name = name
 
+    def has_space(self):
+        return self.limit > self.size
+
     def push(self, value):
         if self.has_space():
             item = Node(value)
@@ -41,9 +44,6 @@ class Stack:
         if self.size > 0:
             return self.top_item.get_value()
         print("Nothing to see here!")
-
-    def has_space(self):
-        return self.limit > self.size
 
     def is_empty(self):
         return self.size == 0
@@ -126,7 +126,7 @@ while right_stack.get_size() != num_disks:
         if from_stack.get_size() == 0:
             print("\n\nInvalid Move. Try Again")
         elif to_stack.get_size() == 0 or from_stack.peek() < to_stack.peek():
-            disk = from_stack.pop()
+            disk = from_stack.pop
             to_stack.push(disk)
             num_user_moves += 1
             break
